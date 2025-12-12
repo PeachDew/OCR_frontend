@@ -89,7 +89,7 @@
                     style="touch-action: none;"
                     ></canvas>
             <div class="buttons">
-                <button class="clear-btn" onclick={clearCanvas}>🗘 Clear Canvas</button>
+                <button class="clear-btn" onclick={clearCanvas}>🗑️ Clear Canvas</button>
                 <button class="submit-btn" id="submitBtn" onclick={handleSubmit} disabled={isLoading || cooldownRemaining > 0}>
                     Run OCR
                 </button>
@@ -190,6 +190,7 @@
 
     .tabs-header button.active {
         background-color: #C73060;
+        color: white;
     }
 
     .tabs-header button:first-child {
@@ -422,6 +423,12 @@
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+
+    .tabs-content {
+        margin-top: 20px;
+        text-align: left;
+        color: white;
+    }    
 
     /* Responsive design */
     @media (max-width: 768px) {

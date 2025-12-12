@@ -357,6 +357,10 @@
         }
     }
 
+    #results.flash {
+        animation: flash-border 1s ease-out;
+    }
+
     @keyframes glowing {
         0% { background-position: 0 0; }
         50% { background-position: 400% 0; } /* Moves the large gradient horizontally */

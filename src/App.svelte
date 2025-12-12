@@ -69,6 +69,10 @@
                     onmousemove={draw}
                     onmouseup={stopDrawing}
                     onmouseleave={stopDrawing}
+
+                    ontouchstart={startDrawing}
+                    ontouchmove={draw}
+                    ontouchend={stopDrawing}
                     ></canvas>
             <div class="buttons">
                 <button class="clear-btn" onclick={clearCanvas}>🗘 Clear Canvas</button>

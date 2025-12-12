@@ -6,6 +6,7 @@
     // Results
     let ocrResults = null;
     let isLoading = false;
+    let cooldownRemaining = 0;
     
     let modelResults = {
         Tesseract: {output: "Not ran yet!"},
@@ -47,6 +48,13 @@
             // Mock response for demo
         }
         isLoading = false;
+        cooldownRemaining = 5;
+        const interval = setInterval(() => {
+            cooldownRemaining--;
+            if (cooldownRemaining <= 0) {
+                clearInterval(interval);
+            }
+        }, 1000);
     }
     let activeModel = 'Tesseract';
     $: currentResults = modelResults[activeModel];
@@ -78,7 +86,7 @@
                     ></canvas>
             <div class="buttons">
                 <button class="clear-btn" onclick={clearCanvas}>🗘 Clear Canvas</button>
-                <button class="submit-btn" id="submitBtn" onclick={handleSubmit} disabled={isLoading}>
+                <button class="submit-btn" id="submitBtn" onclick={handleSubmit} disabled={isLoading || cooldownRemaining > 0}>
                     Run OCR
                 </button>
             </div>

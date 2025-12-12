@@ -348,10 +348,10 @@
     /* 6. Keyframes for Animation */
     @keyframes flash-border {
         0% {
-            box-shadow: 0 0 0 3px white, 0 0 20px rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 0 1px rgba(252,225,250,0.8), 0 0 16px rgba(252, 225, 250, 0.6);
         }
         100% {
-            box-shadow: 0 0 0 3px transparent, 0 0 0 rgba(255, 255, 255, 0);
+            box-shadow: 0 0 0 1px transparent, 0 0 0 rgba(255, 255, 255, 0);
         }
     }
 

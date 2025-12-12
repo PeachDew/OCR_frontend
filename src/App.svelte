@@ -73,6 +73,8 @@
                     ontouchstart={startDrawing}
                     ontouchmove={draw}
                     ontouchend={stopDrawing}
+                    ontouchcancel={stopDrawing}
+                    style="touch-action: none;"
                     ></canvas>
             <div class="buttons">
                 <button class="clear-btn" onclick={clearCanvas}>🗘 Clear Canvas</button>

@@ -345,12 +345,13 @@
     /* 6. Keyframes for Animation */
     @keyframes flash-border {
         0% {
-        border: 3px solid white;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-    }
-    100% {
-        border: 3px solid transparent;
-        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+            border: 3px solid white;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+        100% {
+            border: 3px solid transparent;
+            box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+        }
     }
 
     @keyframes glowing {

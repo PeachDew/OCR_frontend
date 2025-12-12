@@ -9,7 +9,7 @@
     let cooldownRemaining = 0;
     
     let modelResults = {
-        Tesseract: {output: "Not ran yet!"},
+        Tesseract: {output: "Not ran yet!!"},
         TrOCR: {output: "This is too slow for free demo :("}
     };
 

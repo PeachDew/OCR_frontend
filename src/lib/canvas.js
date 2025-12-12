@@ -39,6 +39,10 @@ function initCanvas(canvasElement) {
 }
 
 function startDrawing(e) {
+    if (e.touches) {
+        e.preventDefault();
+    }
+
     isDrawing = true;
     const { x, y } = getCoords(e);
     ctx.beginPath();

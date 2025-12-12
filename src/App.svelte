@@ -8,8 +8,8 @@
     let isLoading = false;
     
     let modelResults = {
-        Tesseract: {output: "Not ran yet! testtest"},
-        TrOCR: {output: "Not ran yet!"}
+        Tesseract: {output: "Not ran yet!"},
+        TrOCR: {output: "This is too slow for free demo :("}
     };
 
     onMount(() => {

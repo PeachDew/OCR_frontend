@@ -36,25 +36,26 @@
             });
 
             const data = await response.json();
+            cooldownRemaining = 3;
+            const interval = setInterval(() => {
+                cooldownRemaining--;
+                if (cooldownRemaining <= 0) {
+                    clearInterval(interval);
+                    if (data.model_results) {
+                        modelResults = { ...modelResults, ...data.model_results };
+                        console.log("assigned")
+                    } else {
+                        console.warn("API response is missing 'model_results' key. Using mock data for display.");
+                    } 
+                }
+            }, 1000);
+
 
         } catch (error) {
             console.error('Error:', error);
             // Mock response for demo
         }
         isLoading = false;
-        cooldownRemaining = 5;
-        const interval = setInterval(() => {
-            cooldownRemaining--;
-            if (cooldownRemaining <= 0) {
-                clearInterval(interval);
-                if (data.model_results) {
-                    modelResults = { ...modelResults, ...data.model_results };
-                    console.log("assigned")
-                } else {
-                    console.warn("API response is missing 'model_results' key. Using mock data for display.");
-                } 
-            }
-        }, 1000);
     }
     let activeModel = 'Tesseract';
     $: currentResults = modelResults[activeModel];
@@ -342,6 +343,16 @@
 
 
     /* 6. Keyframes for Animation */
+    @keyframes flash-border {
+        0% {
+        border: 3px solid white;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        border: 3px solid transparent;
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+
     @keyframes glowing {
         0% { background-position: 0 0; }
         50% { background-position: 400% 0; } /* Moves the large gradient horizontally */

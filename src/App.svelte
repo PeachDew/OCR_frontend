@@ -7,6 +7,7 @@
     let ocrResults = null;
     let isLoading = false;
     let cooldownRemaining = 0;
+    let flashResults = false;
     
     let modelResults = {
         Tesseract: {output: "Not ran yet!!"},
@@ -44,6 +45,8 @@
                     if (data.model_results) {
                         modelResults = { ...modelResults, ...data.model_results };
                         console.log("assigned")
+                        flashResults = true;
+                        setTimeout(() => flashResults = false, 1000);
                     } else {
                         console.warn("API response is missing 'model_results' key. Using mock data for display.");
                     } 
@@ -99,7 +102,7 @@
 
     <!-- Results -->
     {#if modelResults}
-        <div id="results">
+        <div id="results", class:flash={flashResults}>
             <div class="tabs-header">
                 {#each modelKeys as key}
                     <button

@@ -36,12 +36,6 @@
             });
 
             const data = await response.json();
-            if (data.model_results) {
-                modelResults = { ...modelResults, ...data.model_results };
-                console.log("assigned")
-            } else {
-                console.warn("API response is missing 'model_results' key. Using mock data for display.");
-            } 
 
         } catch (error) {
             console.error('Error:', error);
@@ -53,6 +47,12 @@
             cooldownRemaining--;
             if (cooldownRemaining <= 0) {
                 clearInterval(interval);
+                if (data.model_results) {
+                    modelResults = { ...modelResults, ...data.model_results };
+                    console.log("assigned")
+                } else {
+                    console.warn("API response is missing 'model_results' key. Using mock data for display.");
+                } 
             }
         }, 1000);
     }
